@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain Cloud Monitor</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<header>
+    <div class="logo">⬡ Blockchain Cloud Monitor</div>
+    <div class="network">● Demo Network Online</div>
+</header>
+
+<main>
+    <section class="welcome">
+        <p class="subtitle">BLOCKCHAIN NETWORK</p>
+        <h1>Blockchain Dashboard</h1>
+        <p>Мониторинг транзакций и целостности блокчейн-цепочки</p>
+    </section>
+
+    <section class="statistics">
+        <div class="stat-card">
+            <span>Total Blocks</span>
+            <h2 id="blockCount">5</h2>
+        </div>
+        <div class="stat-card">
+            <span>Transactions</span>
+            <h2 id="transactionCount">5</h2>
+        </div>
+        <div class="stat-card">
+            <span>Confirmed</span>
+            <h2 id="confirmedCount">4</h2>
+        </div>
+        <div class="stat-card">
+            <span>Chain Integrity</span>
+            <h2 id="integrityValue">Valid</h2>
+        </div>
+    </section>
+
+    <section class="panel">
+        <div class="section-header">
+            <div>
+                <h2>Blockchain Overview</h2>
+                <p>Структура блоков и их хеши</p>
+            </div>
+            <button id="verifyTopButton">Verify Chain</button>
+        </div>
+        <div id="chainTrack" class="chain"></div>
+    </section>
+
+    <section class="panel">
+        <div class="section-header">
+            <div>
+                <h2>Recent Transactions</h2>
+                <p>Список последних транзакций</p>
+            </div>
+            <button id="openFormButton">+ New Transaction</button>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>BLOCK</th>
+                        <th>SENDER</th>
+                        <th>RECEIVER</th>
+                        <th>AMOUNT</th>
+                        <th>HASH</th>
+                        <th>STATUS</th>
+                        <th>ACTION</th>
+                    </tr>
+                </thead>
+                <tbody id="transactionTable"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="panel">
+        <h2>Security Check</h2>
+        <p>Проверка целостности блокчейн-цепочки</p>
+
+        <button id="verifyButton">Run Integrity Check</button>
+
+        <div id="securityResult" class="result">
+            Ожидание проверки...
+        </div>
+    </section>
+
+</main>
+
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <h2 id="modalTitle">New Transaction</h2>
+
+        <form id="transactionForm">
+            <label>Sender</label>
+            <input id="senderInput" type="text" required>
+
+            <label>Receiver</label>
+            <input id="receiverInput" type="text" required>
+
+            <label>Amount</label>
+            <input id="amountInput" type="number"
+                   min="0.000001" step="0.000001" required>
+
+            <button type="submit">Save Transaction</button>
+            <button type="button" id="cancelButton">Cancel</button>
+        </form>
+
+        <button id="closeModal">×</button>
+    </div>
+</div>
+
+<div id="toast"></div>
+
+</body>
+</html>
